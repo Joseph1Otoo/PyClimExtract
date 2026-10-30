@@ -124,4 +124,21 @@ Ghana using data from The DHS Program. We thank the Copernicus Climate
 Change Service and the Climate Hazards Center for maintaining the data
 services the package reads.
 
+# AI usage disclosure
+
+*Tools used.* Claude Code (Anthropic), running the Claude Opus 5.5
+model, was used for the package source code, the test suite, the
+documentation and examples, and the text of this paper.
+
+*Nature and scope of assistance.* Code generation and refactoring,
+test scaffolding, debugging, documentation drafting, and drafting and
+copy-editing of the paper.
+
+*Confirmation of review.* The author framed the research problem and
+made the core design decisions, including the window-table contract,
+individual-level exposure assignment and the choice of data sources.
+The author reviewed, edited and validated all AI-assisted outputs,
+including by reproducing an independent pipeline's outputs, and takes
+full responsibility for the software and this paper.
+
 # References
