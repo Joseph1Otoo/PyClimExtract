@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "PyClimExtract: time-anchored climate exposure windows for georeferenced survey data"
+abstract: >-
+  A Python package that links gridded climate and environmental data to
+  georeferenced records by building an exposure window around each
+  record's own observation date, extracting the matching grid cells, and
+  reducing them to per-record exposures.
+type: software
+authors:
+  - given-names: Joseph
+    family-names: Otoo
+    email: jotoo@ashesi.edu.gh
+    affiliation: "Ashesi University"
+    # orcid: "https://orcid.org/0000-0000-0000-0000"   # TODO
+version: 0.1.0
+date-released: 2026-10-30
+license: MIT
+repository-code: "https://github.com/Joseph1Otoo/PyClimExtract"   # TODO: confirm
+keywords:
+  - climate and health
+  - exposure assessment
+  - reanalysis
+  - household surveys
+  - reproducible research

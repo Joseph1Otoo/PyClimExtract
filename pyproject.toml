@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pyclimextract"
+version = "0.1.0"
+description = "Link gridded climate reanalysis to georeferenced survey data via point-based exposure windows."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Joseph Otoo" }]
+keywords = ["climate", "ERA5", "reanalysis", "exposure", "DHS", "epidemiology"]
+classifiers = [
+    "Intended Audience :: Science/Research",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Atmospheric Science",
+]
+
+dependencies = [
+    "numpy>=1.24",
+    "pandas>=2.0",
+    "xarray>=2023.1",
+    "netCDF4>=1.6",
+]
+
+[project.urls]
+Homepage = "https://github.com/Joseph1Otoo/PyClimExtract"
+Issues = "https://github.com/Joseph1Otoo/PyClimExtract/issues"
+
+[project.optional-dependencies]
+# The CDS client is only needed to DOWNLOAD ERA5. Extraction, the CHIRPS
+# source and summarising all work without it.
+download = ["cdsapi>=0.6"]
+dev = ["pytest>=7", "pytest-cov"]
+
+[project.scripts]
+pyclimextract = "pyclimextract.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Tests that reach the network are opt-in: `pytest -m live`.
+addopts = "-m 'not live'"
+markers = [
+    "live: touches a remote data service (deselected by default)",
+]

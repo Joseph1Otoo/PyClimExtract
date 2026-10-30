@@ -1,0 +1,24 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Downloaded reanalysis and derived outputs - large, regenerable.
+era5_nc/
+validation_nc/
+*.nc
+exposures.csv
+era5_verify_summary.csv
+source_comparison.csv
+
+# DHS microdata is licensed and must never be committed.
+*.DTA
+*.dta
+GH*.csv
+analysis_df_full.*
