@@ -38,6 +38,7 @@ assignment matters, on a dataset built to mirror the real one.
 |---|---|---|
 | **ERA5** (Copernicus) | temperature, dewpoint, precipitation, wind, radiation, soil moisture | CDS API — needs a free account and `~/.cdsapirc` |
 | **CHIRPS** (UCSB/IRI) | daily rainfall, 1981–present, 50°S–50°N | OPeNDAP — no account, no download |
+| **NASA POWER** (NASA Langley) | daily rainfall, temperature, humidity, wind, radiation; 1981–present, global, ~0.5° | Web API — no account, no key |
 
 ```python
 from pyclimextract.sources import extract_chirps
@@ -47,6 +48,20 @@ daily = extract_chirps(windows)          # that is the whole thing
 
 Only the requested cells and days cross the network, so a 30-day window
 at one point is kilobytes rather than the multi-gigabyte annual file.
+The IRI server's speed varies, however: at busy times each request can
+take many seconds, so CHIRPS suits a few dozen windows better than
+hundreds.
+
+```python
+from pyclimextract.sources import extract_power
+
+daily = extract_power(windows)           # tp_mm, t2m_c, rh, hi_c
+```
+
+NASA POWER is the fast, coarse option: one request per *location*
+returns years of daily data in seconds, so it suits teaching, quick
+exploration and many windows at few places. Its ~50 km grid is too
+coarse to separate nearby sites.
 
 Bring any other product through `extract_from_dataset` below.
 
